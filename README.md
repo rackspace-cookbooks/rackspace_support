@@ -1,6 +1,11 @@
 rackspace_support Cookbook
 ===========================
-Enables a node to be supported by Rackspace.
+Enables a node to be supported by Rackspace.  Installs common
+tools Rackspace support finds useful when debugging system
+problems.
+
+Note: This cookbook uses the firewall cookbook and will attempt
+to manage your iptables unless the node is rackconnected.
 
 Requirements
 ------------
