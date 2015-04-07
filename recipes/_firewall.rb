@@ -19,6 +19,7 @@
 
 firewall 'iptables' do
   action :enable
+  provider Chef::Provider::FirewallIptables
 end
 
 # Rackspace Bastion Access
@@ -32,6 +33,7 @@ end
   119.9.4.2/32
 ).each do |bast_range|
   firewall_rule "bastion_#{bast_range}" do
+    provider Chef::Provider::FirewallRuleIptables
     source bast_range
     action :allow
     description 'Bastion Access'
@@ -48,6 +50,7 @@ end
   92.52.126.0/24
 ).each do |cmon_range|
   firewall_rule "cloud_monitoring_#{cmon_range}" do
+    provider Chef::Provider::FirewallRuleIptables
     source cmon_range
     action :allow
     description 'Cloud Monitoring Access'
@@ -59,6 +62,7 @@ end
   50.56.228.0/24
 ).each do |sup_range|
   firewall_rule "support_#{sup_range}" do
+    provider Chef::Provider::FirewallRuleIptables
     source sup_range
     action :allow
     description 'Rackspace Support Access'
@@ -66,15 +70,18 @@ end
 end
 
 firewall_rule 'open_loopback' do
+  provider Chef::Provider::FirewallRuleIptables
   interface 'lo'
   action :allow
 end
 
 firewall_rule 'allow_established' do
-  raw '-m conntrack --cstate RELATED,ESTABLISHED -j ACCEPT'
+  provider Chef::Provider::FirewallRuleIptables
+  stateful %w(RELATED ESTABLISHED)
   description 'Allow Established'
 end
 
 firewall_rule 'drop_not_allowed' do
+  provider Chef::Provider::FirewallRuleIptables
   action :reject
 end
