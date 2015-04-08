@@ -79,6 +79,7 @@ firewall_rule 'allow_established' do
   provider Chef::Provider::FirewallRuleIptables
   stateful %w(RELATED ESTABLISHED)
   description 'Allow Established'
+  action :allow
 end
 
 firewall_rule 'drop_not_allowed' do
