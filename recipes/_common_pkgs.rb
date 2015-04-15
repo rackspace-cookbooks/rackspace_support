@@ -29,6 +29,7 @@ common_pkgs = %w(
   zip
   lsof
   strace
+  git
 )
 
 case node['platform_family']
