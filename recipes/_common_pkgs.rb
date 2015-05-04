@@ -45,3 +45,13 @@ common_pkgs.each do |pkg|
     action :install
   end
 end
+
+# enable systat on Debian based platforms
+file '/etc/default/sysstat' do
+  only_if { node.platform_family == 'debian' }
+  action :create
+  content 'ENABLED="true"'
+  mode 0644
+  owner 'root'
+  group 'root'
+end
