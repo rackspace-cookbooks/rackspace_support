@@ -25,9 +25,6 @@ node.default['authorization']['sudo']['include_sudoers_d'] = true
   sudo
   rackspace_support::_rack
   chef-sugar-rackspace
-  chef-client::config
-  chef-client::delete_validation
-  chef-client
 ).each do |recipe|
   include_recipe recipe
 end
