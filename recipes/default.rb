@@ -34,7 +34,7 @@ if rackconnected?
     user 'rackconnect'
     nopasswd true
   end
-else
+elsif ! node['testkitchen']
   include_recipe 'rackspace_support::_firewall'
 end
 
