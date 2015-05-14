@@ -1,6 +1,11 @@
 rackspace_support CHANGELOG
 ============================
 
+0.3.0
+-----
+- [jarosser06] - Added tmux package
+- [jarosser06] - Added systat default config for debian based distros
+
 0.2.0
 -----
 - [jarosser06] - Added remote_ip tag
