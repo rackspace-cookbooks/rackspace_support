@@ -1,6 +1,10 @@
 rackspace_support CHANGELOG
 ============================
 
+0.4.0
+-----
+- [jarosser06] - Added flag around firewall includes
+
 0.3.0
 -----
 - [jarosser06] - Added tmux package
