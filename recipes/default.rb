@@ -34,7 +34,9 @@ if rackconnected?
     user 'rackconnect'
     nopasswd true
   end
-else
+end
+
+unless rackconnected? || node['rackspace_support']['ignore_firewall']
   include_recipe 'rackspace_support::_firewall'
 end
 
