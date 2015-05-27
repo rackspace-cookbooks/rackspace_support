@@ -1,22 +1,22 @@
 ---
 driver:
-  name: rackspace
-  rackspace_username: <%= ENV['RACKSPACE_USERNAME'] %>
-  rackspace_api_key: <%= ENV['RACKSPACE_API_KEY'] %>
-  public_key_path: <%= ENV['RACKSPACE_PUBLIC_KEY'] %>
-  require_chef_omnibus: true
+  name: vagrant
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
-  - name: ubuntu-14.04
+  - name: centos-6.6
+    run_list:
+    - recipe[yum]
   - name: ubuntu-12.04
-  - name: centos-7
-  - name: centos-6
+    run_list:
+    - recipe[apt]
+  - name: ubuntu-14.04
+    run_list:
+    - recipe[apt]
 
 suites:
   - name: default
     run_list:
       - recipe[rackspace_support::default]
-    attributes:
