@@ -21,7 +21,6 @@ common_pkgs = %w(
   sysstat
   dstat
   screen
-  tmux
   curl
   telnet
   traceroute
@@ -34,7 +33,7 @@ common_pkgs = %w(
 
 case node['platform_family']
 when 'debian'
-  common_pkgs.concat(%w(vim htop))
+  common_pkgs.concat(%w(vim htop tmux))
   include_recipe 'apt'
 when 'rhel'
   common_pkgs.push('vim-minimal')
@@ -48,7 +47,7 @@ end
 
 # enable systat on Debian based platforms
 file '/etc/default/sysstat' do
-  only_if { node.platform_family == 'debian' }
+  only_if { node['platform_family'] == 'debian' }
   action :create
   content 'ENABLED="true"'
   mode 0644
