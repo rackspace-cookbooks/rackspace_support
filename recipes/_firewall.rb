@@ -16,12 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-firewall 'iptables' do
-  action :enable
-  provider Chef::Provider::FirewallIptables
-end
-
 # Rackspace Bastion Access
 %w(
   72.3.128.84/32
@@ -67,22 +61,4 @@ end
     action :allow
     description 'Rackspace Support Access'
   end
-end
-
-firewall_rule 'open_loopback' do
-  provider Chef::Provider::FirewallRuleIptables
-  interface 'lo'
-  action :allow
-end
-
-firewall_rule 'allow_established' do
-  provider Chef::Provider::FirewallRuleIptables
-  stateful %w(RELATED ESTABLISHED)
-  description 'Allow Established'
-  action :allow
-end
-
-firewall_rule 'drop_not_allowed' do
-  provider Chef::Provider::FirewallRuleIptables
-  action :reject
 end

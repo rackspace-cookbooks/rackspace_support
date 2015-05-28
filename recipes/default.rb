@@ -36,10 +36,6 @@ if rackconnected?
   end
 end
 
-unless rackconnected? || node['rackspace_support']['ignore_firewall']
-  include_recipe 'rackspace_support::_firewall'
-end
-
 remoteip = node.deep_fetch('public_info', 'remote_ip')
 if remoteip =~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/
   # Assign the external_ip tag to the node if node['public_info']['remote_ip'] looks like an IP.
