@@ -1,6 +1,10 @@
 rackspace_support CHANGELOG
 ============================
 
+Unreleased
+----------
+- [dude051] - Removed all firewall rules not directly related to Rackspace
+
 0.4.0
 -----
 - [jarosser06] - Added flag around firewall includes
