@@ -25,6 +25,13 @@
   212.100.225.49/32
   212.100.225.42/32
   119.9.4.2/32
+  172.99.99.10/32
+  119.9.122.10/32
+  146.20.2.10/32
+  134.213.179.10/32
+  134.213.178.10/32
+  161.47.0.10/32
+  119.9.148.10/32
 ).each do |bast_range|
   firewall_rule "bastion_#{bast_range}" do
     provider Chef::Provider::FirewallRuleIptables
