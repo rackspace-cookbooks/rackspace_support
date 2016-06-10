@@ -1,6 +1,11 @@
 rackspace_support CHANGELOG
 ============================
 
+1.1.0
+-----
+- [jarosser06] - Added firewall rules for new Rackspace bastions
+
+
 1.0.0
 -----
 - [dude051] - Removed all firewall rules not directly related to Rackspace *Breaking change*
